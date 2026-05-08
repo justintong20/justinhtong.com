@@ -252,6 +252,34 @@
     margin-bottom: 1rem;
   }
 
+  .project-date {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .personal-divider {
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .personal-divider-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .project.personal {
+    border-style: dashed;
+    background: transparent;
+  }
+
   .project-tech {
     display: flex;
     gap: 0.5rem;
@@ -356,25 +384,32 @@
 
   <div class="hero">
     <h1>Mechanical Engineer<br>in San&nbsp;Diego, CA</h1>
-    <p class="hero-intro">
-      Mechanical engineer with hands-on experience in composite fabrication, FEA, and design for manufacturing. SDSU '26.
-    </p>
+    <div class="hero-tags-group" style="opacity:0; animation: fadeIn 0.6s ease forwards 0.3s;">
+      <div class="tags-row">
+        <span class="tag">Mechanical Design</span>
+        <span class="tag">SolidWorks</span>
+        <span class="tag">OnShape</span>
+        <span class="tag">ANSYS FEA</span>
+        <span class="tag">Composite Fabrication</span>
+        <span class="tag">3D Printing</span>
+        <span class="tag">First Principles Approach</span>
+        <span class="tag">DFM</span>
+        <span class="tag">Microsoft Suite</span>
+      </div>
+    </div>
   </div>
 
   <section id="about" class="fade">
     <div class="section-label">About</div>
     <div class="about">
       <p>
-        I like building things that take a hit. Whether it's a modular pylon for the MQ-9 Reaper or a 3-lb combat robot designed to survive arena impacts, I'm happiest when I'm working through the full design-build-test cycle — CAD to layup to competition floor.
+        Thanks for visiting my site. I'm a mechanical engineer graduating from San Diego State University in Spring 2026. I find myself drawn to engineering problems that let me discover, iterate, and optimize toward a final solution.
       </p>
       <p>
-        At SDSU I've spent most of my time in the shop and the sim. I run FEA in ANSYS, design in SolidWorks, and have gotten my hands dirty with composite fabrication (VARTM), 3D printing, and CNC. My senior design work with General Atomics taught me how to hold a design to MIL-STD requirements and a 1.5 factor of safety while keeping weight down — and how to present that work to working engineers who don't have time for fluff.
+        In my last year at SDSU, I worked on a capstone project sponsored by General Atomics to build a modular pylon for the MQ-9A. The pylon was designed to accommodate multiple stores using MRL, 14-inch and 30-inch BRU lug sets. Working alongside the team, I helped design the main pylon structure, owned the laminate theory and composite design, and performed vacuum-assisted resin infusion on the composite parts. I also designed and refined a fully mechanical store release demo system.
       </p>
       <p>
-        Outside of engineering, I race triathlons competitively — 12th at USAT Age Group Nationals in 2025 and a 4:56 at Santa Cruz 70.3. I'm also an Eagle Scout, which is probably where the instinct to lead small teams and stay organized comes from.
-      </p>
-      <p>
-        I'm looking for a role in aerospace, defense, or manufacturing where precision matters and the work has purpose.
+        Through the American Society of Mechanical Engineers club, I led a small team of ME students to design and build a fully 3D-printed combat robot for a CSU competition. 3D printing changes the design philosophy entirely. I designed the chassis, drivetrain, and wired the whole electrical system. Designing for unpredictable forces was a fun challenge.
       </p>
     </div>
   </section>
@@ -384,10 +419,11 @@
 
     <div class="project">
       <div class="project-header">
-        <h3>MQ-9 Reaper Modular Pylon</h3>
+        <h3>MQ-9A Modular Pylon</h3>
         <span class="project-type">Senior Design — General Atomics</span>
       </div>
-      <p>Engineered a modular payload pylon for the MQ-9 Reaper UAV, increasing hardpoint connections from 1 to 4. Ran static structural FEA across multiple load cases, designed composite layups using laminate theory, and fabricated structural components via VARTM. Delivered a full-scale design package and half-scale model to General Atomics engineers.</p>
+      <div class="project-date">Sept 2025 — May 2026</div>
+      <p>Engineered a modular payload pylon for the MQ-9A Reaper UAV, increasing hardpoint connections from 1 to 4. Ran static structural FEA across multiple load cases, designed composite layups using laminate theory, and fabricated structural components via VARTM. Delivered a full-scale design package and half-scale model to General Atomics engineers.</p>
       <div class="project-tech">
         <span>SolidWorks</span>
         <span>ANSYS FEA</span>
@@ -401,6 +437,7 @@
         <h3>3-lb Combat Robot</h3>
         <span class="project-type">ASME Design Team — Project Lead</span>
       </div>
+      <div class="project-date">Sept 2025 — Apr 2026</div>
       <p>Designed and 3D printed a 3-lb combat robot optimized for additive manufacturing constraints and impact loading. Led a multidisciplinary team through full design-build-test cycles for CSUN and National Havoc Robot League competitions. Selected materials and manufacturing methods balancing cost, lead time, and structural requirements.</p>
       <div class="project-tech">
         <span>SolidWorks</span>
@@ -415,11 +452,45 @@
         <h3>FSAE Composite Undertray</h3>
         <span class="project-type">Aztec Electric Racing</span>
       </div>
+      <div class="project-date">Fall 2023 — Spring 2024</div>
       <p>Contributed to the research, design, and fabrication of a carbon fiber composite undertray for SDSU's Formula SAE electric vehicle. Also developed an instrument panel in SolidWorks compliant with FSAE hardware and safety regulations.</p>
       <div class="project-tech">
         <span>SolidWorks</span>
         <span>Carbon Fiber</span>
         <span>FSAE Regs</span>
+      </div>
+    </div>
+
+    <div class="personal-divider">
+      <span class="personal-divider-label">Personal Projects</span>
+    </div>
+
+    <div class="project personal">
+      <div class="project-header">
+        <h3>Automated ID Card Sorter</h3>
+        <span class="project-type">Concept Design</span>
+      </div>
+      <div class="project-date">2025</div>
+      <p>Designed a fully automated ID card sorting system using optical character recognition (OCR) and custom sorting logic to organize cards into alphabetical order. Conceptualized for the SDSU Card Office to improve operational efficiency. Not physically built.</p>
+      <div class="project-tech">
+        <span>OCR</span>
+        <span>Automation</span>
+        <span>Mechanical Design</span>
+      </div>
+    </div>
+
+    <div class="project personal">
+      <div class="project-header">
+        <h3>Automated Plant Watering System</h3>
+        <span class="project-type">Build</span>
+      </div>
+      <div class="project-date">2025</div>
+      <p>Built a smart plant watering system using capacitance-based moisture sensors integrated with an ESP32 microcontroller. Connected to a home server with a WiFi-based dashboard for remote monitoring and control, with a failsafe through fully autonomous operation.</p>
+      <div class="project-tech">
+        <span>ESP32</span>
+        <span>IoT</span>
+        <span>Sensors</span>
+        <span>Home Server</span>
       </div>
     </div>
   </section>
