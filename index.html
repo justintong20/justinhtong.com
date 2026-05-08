@@ -147,6 +147,29 @@
     animation: fadeIn 0.6s ease forwards 0.1s;
   }
 
+  .hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero-text {
+    flex: 1;
+  }
+
+  .hero-headshot {
+    flex-shrink: 0;
+  }
+
+  .hero-headshot img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+  }
+
   .hero-intro {
     color: var(--text-secondary);
     max-width: 540px;
@@ -260,6 +283,94 @@
     margin-bottom: 0.75rem;
   }
 
+  /* ── Image Slider ── */
+  .project-slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background: var(--border);
+  }
+
+  .project-slider img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .project-slider img.active {
+    opacity: 1;
+  }
+
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .project-slider:hover .slider-btn {
+    opacity: 0.9;
+  }
+
+  .slider-btn.prev { left: 8px; }
+  .slider-btn.next { right: 8px; }
+
+  .slider-btn:hover {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+
+  .slider-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+  }
+
+  .slider-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .slider-dot.active {
+    opacity: 1;
+    background: var(--text);
+  }
+
+  /* Hide controls when only 1 image */
+  .project-slider[data-count="1"] .slider-btn,
+  .project-slider[data-count="1"] .slider-dots {
+    display: none;
+  }
+
   .personal-divider {
     margin-top: 2.5rem;
     margin-bottom: 1.5rem;
@@ -361,6 +472,8 @@
     .hero h1 { font-size: 1.8rem; }
     .contact-grid { grid-template-columns: 1fr; }
     .nav-links { gap: 1.25rem; }
+    .hero-content { flex-direction: column-reverse; text-align: center; }
+    .hero-headshot img { width: 120px; height: 120px; }
   }
 </style>
 </head>
@@ -374,6 +487,7 @@
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
+      <a href="Resume_Justin_Tong_SP26.pdf" target="_blank">Resume</a>
       <div class="theme-toggle" id="themeToggle">
         <span class="toggle-icon">☀</span>
         <div class="toggle-track"></div>
@@ -383,18 +497,25 @@
   </nav>
 
   <div class="hero">
-    <h1>Mechanical Engineer<br>in San&nbsp;Diego, CA</h1>
-    <div class="hero-tags-group" style="opacity:0; animation: fadeIn 0.6s ease forwards 0.3s;">
-      <div class="tags-row">
-        <span class="tag">Mechanical Design</span>
-        <span class="tag">SolidWorks</span>
-        <span class="tag">OnShape</span>
-        <span class="tag">ANSYS FEA</span>
-        <span class="tag">Composite Fabrication</span>
-        <span class="tag">3D Printing</span>
-        <span class="tag">First Principles Approach</span>
-        <span class="tag">DFM</span>
-        <span class="tag">Microsoft Suite</span>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Mechanical Engineer<br>in San&nbsp;Diego, CA</h1>
+        <div class="hero-tags-group" style="opacity:0; animation: fadeIn 0.6s ease forwards 0.3s;">
+          <div class="tags-row">
+            <span class="tag">Mechanical Design</span>
+            <span class="tag">SolidWorks</span>
+            <span class="tag">OnShape</span>
+            <span class="tag">ANSYS FEA</span>
+            <span class="tag">Composite Fabrication</span>
+            <span class="tag">3D Printing</span>
+            <span class="tag">First Principles Approach</span>
+            <span class="tag">DFM</span>
+            <span class="tag">Microsoft Suite</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-headshot" style="opacity:0; animation: fadeIn 0.6s ease forwards 0.4s;">
+        <img src="WebsiteImages/headshot.jpg" alt="Justin H. Tong">
       </div>
     </div>
   </div>
@@ -423,6 +544,12 @@
         <span class="project-type">Senior Design — General Atomics</span>
       </div>
       <div class="project-date">Sept 2025 — May 2026</div>
+      <div class="project-slider" data-count="1">
+        <img src="WebsiteImages/MQ9/1.jpg" class="active" alt="MQ-9A Modular Pylon">
+        <button class="slider-btn prev">‹</button>
+        <button class="slider-btn next">›</button>
+        <div class="slider-dots"></div>
+      </div>
       <p>Engineered a modular payload pylon for the MQ-9A Reaper UAV, increasing hardpoint connections from 1 to 4. Ran static structural FEA across multiple load cases, designed composite layups using laminate theory, and fabricated structural components via VARTM. Delivered a full-scale design package and half-scale model to General Atomics engineers.</p>
       <div class="project-tech">
         <span>SolidWorks</span>
@@ -438,6 +565,12 @@
         <span class="project-type">ASME Design Team — Project Lead</span>
       </div>
       <div class="project-date">Sept 2025 — Apr 2026</div>
+      <div class="project-slider" data-count="1">
+        <img src="WebsiteImages/ASME/1.jpg" class="active" alt="3-lb Combat Robot">
+        <button class="slider-btn prev">‹</button>
+        <button class="slider-btn next">›</button>
+        <div class="slider-dots"></div>
+      </div>
       <p>Designed and 3D printed a 3-lb combat robot optimized for additive manufacturing constraints and impact loading. Led a multidisciplinary team through full design-build-test cycles for CSUN and National Havoc Robot League competitions. Selected materials and manufacturing methods balancing cost, lead time, and structural requirements.</p>
       <div class="project-tech">
         <span>SolidWorks</span>
@@ -550,6 +683,43 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+  // Image sliders
+  document.querySelectorAll('.project-slider').forEach(slider => {
+    const images = slider.querySelectorAll('img');
+    const dotsContainer = slider.querySelector('.slider-dots');
+    const prevBtn = slider.querySelector('.slider-btn.prev');
+    const nextBtn = slider.querySelector('.slider-btn.next');
+    let current = 0;
+
+    // Update data-count attribute
+    slider.setAttribute('data-count', images.length);
+
+    // Build dots
+    images.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('slider-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(index) {
+      images[current].classList.remove('active');
+      dotsContainer.children[current]?.classList.remove('active');
+      current = index;
+      images[current].classList.add('active');
+      dotsContainer.children[current]?.classList.add('active');
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      goTo(current === 0 ? images.length - 1 : current - 1);
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      goTo(current === images.length - 1 ? 0 : current + 1);
+    });
+  });
 </script>
 
 </body>
