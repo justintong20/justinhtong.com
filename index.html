@@ -471,9 +471,12 @@
     .container { padding: 0 1.25rem; }
     .hero h1 { font-size: 1.8rem; }
     .contact-grid { grid-template-columns: 1fr; }
-    .nav-links { gap: 1.25rem; }
+    nav { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+    .nav-links { gap: 1rem; flex-wrap: wrap; }
+    .nav-links a { font-size: 0.7rem; }
     .hero-content { flex-direction: column-reverse; text-align: center; }
     .hero-headshot img { width: 120px; height: 120px; }
+    .tags-row { justify-content: center; }
   }
 </style>
 </head>
