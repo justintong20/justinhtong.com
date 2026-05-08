@@ -717,11 +717,25 @@
 
     prevBtn?.addEventListener('click', () => {
       goTo(current === 0 ? images.length - 1 : current - 1);
+      resetTimer();
     });
 
     nextBtn?.addEventListener('click', () => {
       goTo(current === images.length - 1 ? 0 : current + 1);
+      resetTimer();
     });
+
+    // Auto-slide every 8 seconds
+    let timer;
+    function resetTimer() {
+      clearInterval(timer);
+      if (images.length > 1) {
+        timer = setInterval(() => {
+          goTo(current === images.length - 1 ? 0 : current + 1);
+        }, 8000);
+      }
+    }
+    resetTimer();
   });
 </script>
 
